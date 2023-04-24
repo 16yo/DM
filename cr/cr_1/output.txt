@@ -1,0 +1,11 @@
+итого 200
+drwxrwxr-x 2 bulat bulat   4096 мар 13 14:52 .
+drwxrwxr-x 4 bulat bulat   4096 мар 12 19:15 ..
+-rw-rw-r-- 1 bulat bulat    132 мар 12 19:14 cr_1.aux
+-rw-rw-r-- 1 bulat bulat   6563 мар 12 19:14 cr_1.fdb_latexmk
+-rw-rw-r-- 1 bulat bulat  13095 мар 12 19:14 cr_1.fls
+-rw-r--r-- 1 bulat bulat  19029 мар 12 19:14 cr_1.log
+-rw-r--r-- 1 bulat bulat 108907 мар 12 19:14 cr_1.pdf
+-rw-rw-r-- 1 bulat bulat  25129 мар 12 19:14 cr_1.synctex.gz
+-rw-rw-r-- 1 bulat bulat   4754 мар 12 19:14 cr_1.tex
+-rw-rw-r-- 1 bulat bulat      0 мар 13 14:52 output.txt

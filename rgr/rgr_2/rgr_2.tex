@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+
+
+\title{РГР по дискретной математике\\Вторая задача}
+\author{Клименко В. М. -- М8О-103Б-22 -- 2 вариант}
+\date{Апрель, 2023}
+
+\begin{document}
+\maketitle
+
+
+\section*{Дано}
+$S_8 \ni \pi = [(85214)(6231)(8145)(4726)]^{-85}$ 
+
+\section*{Задание}
+Для заданной подстановки из $S_8$ определить:
+\begin{enumerate}
+    \item разложение в произведение независимых циклов
+    \item порядок подстановки
+    \item разложение в произведение транспозиций
+    \item четность подстановки
+\end{enumerate}
+
+
+\section*{Решение}
+\subsection*{Пункт 1}
+\begin{enumerate}
+\item $\pi = [(85214)(6231)(8145)(4726)]^{-85} = [(85214)(6231)(8147265)]^{-85} = \\
+= [(85214)(1473)(586)]^{-85} = [(1852)(347)(586)]^{-85} 
+= [(347)(1862)]^{-85} $.
+
+\item Пусть $\pi = (\alpha \cdot \beta)^{-85}$, где $\alpha = (1862), \beta = (347)$ \\
+$\alpha^{4} = e, \beta^{3} = e \Rightarrow (\alpha \cdot \beta)^{12} = e$
+
+\item $\pi = (\alpha \cdot \beta)^{-85} = (\alpha \cdot \beta)^{12 * (-7) + (-1)} = (\alpha \cdot \beta)^{-1} = (1268)(374)$
+
+\end{enumerate}
+
+\subsection*{Пункт 2}
+Количество элементов $\pi \in S_8$ равно 8, следовательно порядок подстановки тоже $8$.
+
+\subsection*{Пункт 3}
+$\pi = (1268)(374) = (18)(16)(12)(34)(37)$.
+
+\subsection*{Пункт 4}
+Число транспозиций -- $5$, следовательно подстановка нечетная.
+
+
+\section*{Ответ}
+\begin{enumerate}
+    \item $(1268)(374)$
+    \item $8$
+    \item $(18)(16)(12)(34)(37)$
+    \item нечетная
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[russian]{babel}
+
+
+\title{Расчетно-графическая работа по дискретной математике\\Первая задача}
+\author{Ахметшин Б.Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Март, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Дано}
+Заданы функции на множестве целых неотрицательных чисел $\mathbb{N}_0$:
+\[S(x) = x + 1, O(x) = 0, I^n_m(x_1, ..., x_n) = x_m (1 <= m <= n), \sigma(x_1, x_2) = x_1 + x_2.\]
+\section*{Найти}
+\[F(x,y) = 3x(y+2)\]
+
+\section*{Решение}
+\[
+\begin{cases}
+F(x,0) = 3x(0 + 2) = 6x = \underbrace{\sigma(x, ...\sigma(x, x) ... )}_{6} \\
+F(x,y + 1) = 3x((y + 1) + 2) = 3x(y + 3) = 3xy + 9x = z + 9x = \sigma(z, \underbrace{\sigma(x, ... \sigma(x,x)...)}_{9})
+\end{cases}
+\]
+
+
+где $z=3xy$
+\end{document}

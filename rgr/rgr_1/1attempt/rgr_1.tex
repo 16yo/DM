@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[russian]{babel}
+
+
+\title{Расчетно-графическая работа по дискретной математике\\Первая задача}
+\author{Ахметшин Б.Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Март, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Дано}
+Заданы функции на множестве целых неотрицательных чисел $\mathbb{N}_0$:
+\[S(x) = x + 1, O(x) = 0, I^n_m(x_1, ..., x_n) = x_m (1 <= m <= n), \sigma(x_1, x_2) = x_1 + x_2.\]
+\section*{Найти}
+\[F(x,y) = 3x(y+2)\]
+
+\section*{Решение}
+Пусть известно выражение функции \[M(x,y) = xy\]
+Тогда искомая функция может быть выражена как \[F(x,y) = M(3,M(x,\sigma(y,2)))\]
+Выразим функцию $M(x,y)$:
+\[M(x,y) = xy = \underbrace{x + ... + x}_{y}=\underbrace{\sigma(x,\sigma(x,...)}_{y}\]
+Т.е. ф-я $M(x,y)$ может быть задана при помощи оператора примитивной рекурсии:
+\[
+M(x,y) =
+\begin{cases}
+  M(x,0)=O(x)\\
+  M(x,y+1)=\sigma(x, M(x,y))
+\end{cases}
+\]
+\\\\
+Ответ: $F(x,y)=M(3,M(x,\sigma(y,2)))$ при заданной функции $M(x,y)$.
+\end{document}

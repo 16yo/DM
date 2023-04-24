@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\newcommand\tm[1]{\tikzmark{#1}}
+\newcommand\ld[2]{$\lambda^{(#1)}_{#2}$}
+
+\setcounter{MaxMatrixCols}{20}
+
+
+\title{Курсовая работа по дискретной математике\\Четвертая задача}
+\author{Ахметшин Б.Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Апрель, 2023}
+
+\setcounter{MaxMatrixCols}{20}
+
+\let\inf\infty
+
+\begin{document}
+
+\maketitle
+
+\section*{Дано:}
+Матрица длин дуг нагруженого орграфа:\\
+
+$
+G = 
+\begin{pmatrix}
+  \inf	&	 3	&	 5	&	 6	&	 \inf	&	 \inf	&	 \inf	&	\inf	\\
+  2	&	 \inf	&	 1	&	 2	&	 \inf	&	 \inf	&	 \inf	&	 \inf	\\
+  \inf	&	 1	&	 \inf	&	 \inf	&	 3	&	 \inf	&	 \inf	&	 \inf	\\
+  3	&	 \inf	&	 \inf	&	 \inf	&	 4	&	 7	&	 \inf	&	 9	\\
+  5	&	 \inf	&	 \inf	&	 4	&	 \inf	&	 \inf	&	 4	&	 \inf	\\
+  \inf	&	 \inf	&	 \inf	&	 \inf	&	 \inf	& \inf &	 1	&	 2	\\
+  7	&	 \inf	&	 \inf	&	 \inf	&	 \inf	&	 1	&	 \inf	&	 2	\\
+  8	&	 \inf	&	 \inf	&	 13	&	 \inf	&	 \inf	&	 \inf	&	 \inf	
+\end{pmatrix}
+$
+
+
+\section*{Задание}
+Используя алгоритм Форда, найти минимальные пути из первой вершины во
+все достижимые вершины в нагруженном графе, заданном матрицей длин дуг $A$.
+
+
+\section*{Решение}
+\begin{tabular}{l|llllllll|llllllll}
+         & $V1$     & $V2$     & $V3$     & $V4$     & $V5$     & $V6$     & $V7$     & $V8$     
+& \ld{0}{i}& \ld{1}{i}& \ld{2}{i}& \ld{3}{i}& \ld{4}{i}& \ld{5}{i}& \ld{6}{i}& \ld{7}{i}\\
+\midrule
+$V1$ & $\inf$   &  3       & 5        & 6        & $\inf$   & $\inf$   & $\inf$   & $\inf$  
+     & 0\tm{a}  &  0       & 0        & 0        & 0        & 0        & 0        & 0         \\
+$V2$ & 2        & $\inf$   & 1        & 2        & $\inf$   & $\inf$   & $\inf$   & $\inf$  
+     & $\inf$   & 3\tm{b}  & 3        & 3        & 3        & 3        & 3        & 3         \\
+$V3$ & $\inf$   & 1        & $\inf$   & $\inf$   & 3        & $\inf$   & $\inf$   & $\inf$   
+     & $\inf$   & 5        & 4\tm{c}  & 4        & 4        & 4        & 4        & 4         \\
+$V4$ & 3        & $\inf$   & $\inf$   & $\inf$   & 4        & 7        & $\inf$   & 9       
+     & $\inf$   & 6        & 5\tm{d}  & 5        & 5        & 5        & 5        & 5         \\
+$V5$ & 5        & $\inf$   & $\inf$   & 4        & $\inf$   & $\inf$   & 4        & $\inf$   
+     & $\inf$   & $\inf$   & 8        & 7\tm{e}  & 7        & 7        & 7        & 7         \\
+$V6$ & $\inf$   & $\inf$   & $\inf$   & $\inf$   & $\inf$   & $\inf$   & 1        & 2        
+     & $\inf$   & $\inf$   & 13       & 1\tm{f}2 & 12       & 12       & 12       & 12        \\
+$V7$ & 7        & $\inf$   & $\inf$   & $\inf$   & $\inf$   & 1        & $\inf$   & 2       
+     & $\inf$   & $\inf$   & $\inf$   & 12       & 1\tm{g}1 & 11       & 11       & 11        \\
+$V8$ & 8        & $\inf$   & $\inf$   & 13       & $\inf$   & $\inf$   & $\inf$   & $\inf$   
+     & $\inf$   & $\inf$   & 15       & 14       & 14       & 1\tm{h}3 & 13       & 13      
+\end{tabular}
+
+
+\begin{tikzpicture}[overlay, remember picture, transform canvas={yshift=.25\baselineskip}]
+\draw[->] ([xshift=8pt]pic cs:a) -- ([xshift=-8pt]pic cs:b);
+\draw[->] ([xshift=8pt]pic cs:b) -- ([xshift=-8pt]pic cs:c);
+\draw[->] ([xshift=8pt]pic cs:b) -- ([xshift=-8pt]pic cs:d);
+\draw[->] ([xshift=8pt]pic cs:c) -- ([xshift=-8pt]pic cs:e);
+\draw[->] ([xshift=8pt]pic cs:d) -- ([xshift=-8pt]pic cs:f);
+\draw[->] ([xshift=8pt]pic cs:e) -- ([xshift=-8pt]pic cs:g);
+\draw[->] ([xshift=8pt]pic cs:g) -- ([xshift=-8pt]pic cs:h);
+\end{tikzpicture}
+\\
+\begin{enumerate}
+\item Из $v_1$ в $v_2$ - $v_1 - v_2$, длина равна 3
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+\end{enumerate}
+
+\item Из $v_1$ в $v_3$ - $v_1 - v_2 - v_3$, длина равна 4
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{23} = 3 + 1 =$\ld{2}{3}
+\end{enumerate}
+
+\item Из $v_1$ в $v_4$ - $v_1 - v_2 - v_4$, длина равна 5
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{24} = 3 + 2 =$\ld{2}{4}
+\end{enumerate}
+
+\item Из $v_1$ в $v_5$ - $v_1 - v_2 - v_3 - v_5$, длина равна 7
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{23} = 3 + 1 =$\ld{2}{3}
+    \item \ld{2}{3}$+ c_{35} = 4 + 3 =$\ld{3}{5}
+\end{enumerate}
+
+\item Из $v_1$ в $v_5$ - $v_1 - v_2 - v_4 - v_6$, длина равна 12
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{24} = 3 + 2 =$\ld{2}{4}
+    \item \ld{2}{4}$+ c_{46} = 5 + 7 =$\ld{3}{6}
+\end{enumerate}
+
+\item Из $v_1$ в $v_7$ - $v_1 - v_2 - v_3 - v_5 - v_7$, длина равна 11
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{23} = 3 + 1 =$\ld{2}{3}
+    \item \ld{2}{3}$+ c_{35} = 4 + 3 =$\ld{3}{5}
+    \item \ld{3}{5}$+ c_{57} = 7 + 4 =$\ld{4}{7}
+\end{enumerate}
+
+\item Из $v_1$ в $v_8$ - $vv_1 - v_2 - v_3 - v_5 - v_7 - v_8$, длина равна 13
+\begin{enumerate}
+    \item \ld{0}{1}$+ c_{12} = 0 + 3 =$\ld{1}{2}
+    \item \ld{1}{2}$+ c_{23} = 3 + 1 =$\ld{2}{3}
+    \item \ld{2}{3}$+ c_{35} = 4 + 3 =$\ld{3}{5}
+    \item \ld{3}{5}$+ c_{57} = 7 + 4 =$\ld{4}{7}
+    \item \ld{4}{7}$+ c_{78} = 11 + 2 =$\ld{5}{8}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
