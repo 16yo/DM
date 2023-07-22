@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.9)  25 APR 2023 03:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.9)  15 MAY 2023 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bulat/Studying/DM/rgr/rgr_2/rgr_2.tex
-(/home/bulat/Studying/DM/rgr/rgr_2/rgr_2.tex
+**/home/bulat/Studying/DM/rgr/rgr_4/rgr_4.tex
+(/home/bulat/Studying/DM/rgr/rgr_4/rgr_4.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-07> (/home/bulat/.miktex/texmfs/install/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -348,34 +348,43 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layouthoffset=\dimen157
 \Gm@layoutvoffset=\dimen158
 \Gm@dimlist=\toks22
- (/home/bulat/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg)) (/home/bulat/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+ (/home/bulat/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg)) (/home/bulat/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/home/bulat/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/home/bulat/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count276
 \l__pdf_internal_box=\box53
-) (rgr_2.aux
+) (rgr_4.aux
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 5.
  (/home/bulat/.miktex/texmfs/install/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
-\openout1 = `rgr_2.aux'.
+\openout1 = `rgr_4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Info: Redefining \th on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Info: Redefining \th on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -411,21 +420,38 @@ LaTeX Info: Redefining \th on input line 12.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+(/home/bulat/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+ (/home/bulat/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 67--81
+
+ []
+
 [1
 
-{/home/bulat/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] (rgr_2.aux) ) 
+{/home/bulat/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 83--96
+
+ []
+
+[2] (rgr_4.aux) ) 
 Here is how much of TeX's memory you used:
- 3423 strings out of 478274
- 52109 string characters out of 5839850
- 1856346 words of memory out of 5000000
- 23608 multiletter control sequences out of 15000+600000
- 520998 words of font info for 52 fonts, out of 8000000 for 9000
+ 3969 strings out of 478274
+ 58592 string characters out of 5839850
+ 1862346 words of memory out of 5000000
+ 24131 multiletter control sequences out of 15000+600000
+ 525222 words of font info for 68 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 57i,6n,62p,286b,212s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1200.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1000.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1440.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1200.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1728.pk></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on rgr_2.pdf (2 pages, 90664 bytes).
+ 57i,8n,62p,286b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1000.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1200.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1000.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1440.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1200.pk> </home/bulat/.miktex/texmfs/data/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1728.pk></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/bulat/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on rgr_4.pdf (2 pages, 114637 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
+ 190 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

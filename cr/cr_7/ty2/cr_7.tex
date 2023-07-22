@@ -1,0 +1,260 @@
+\documentclass{article}
+
+\usepackage{amsmath, systeme}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+
+\usepackage{tikz}
+\usetikzlibrary{graphs, babel, quotes, calc, arrows.meta}
+
+
+\title{Курсовая работа по дискретной математике\\Седьмая задача}
+\author{Ахметшин Б. Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Май, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Задача}
+Построить максимальный поток по данной транспортной сети.
+
+\section*{Дано}
+
+\begin{center}
+    \begin{tikzpicture}[circ/.style={circle, draw}]
+        \path[nodes={circ}]
+            (6,  0) node(6) {6}
+            (2,  1) node(3) {3}
+            (10, 1) node(8) {8}
+            (0,  3) node(1) {1}
+            (6,  3) node(5) {5}
+            (12, 3) node(9) {9}
+            (2,  5) node(2) {2}
+            (6,  6) node(4) {4}
+            (10, 5) node(7) {7}
+        ;
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (1) -- node{4} (2);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (1) -- node{3} (3);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (1) -- node{8} (4);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (1) -- node{7} (5);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (1) -- node{10} (6);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (2) -- node{4} (4);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (2) -- node{3} (5);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (3) -- node{5} (5);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (3) -- node{3} (6);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (4) -- node{7} (7);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (5) -- node{4} (7);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (5) -- node{4} (8);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (5) -- node{6} (9);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (6) -- node{10} (8);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (7) -- node{10} (9);
+        \draw[-{Stealth[scale=2]}, nodes={auto}]
+            (8) -- node{15} (9);
+    \end{tikzpicture}
+\end{center}
+
+\newpage
+\section*{Решение}
+
+\begin{enumerate}
+    \item Построим полный поток
+    \begin{center}
+        \begin{tikzpicture}[circ/.style={circle, draw}]
+            \path[nodes={circ}]
+                (6,  0) node(6) {6}
+                (2,  1) node(3) {3}
+                (10, 1) node(8) {8}
+                (0,  3) node(1) {1}
+                (6,  3) node(5) {5}
+                (12, 3) node(9) {9}
+                (2,  5) node(2) {2}
+                (6,  6) node(4) {4}
+                (10, 5) node(7) {7}
+            ;
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{0+4} (2);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{0+3} (3);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{0+3} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{0+1+6} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{0+7} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{0+4} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{0} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{0} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{0+3} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (4) -- node{0+4+3} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{0+1} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{0} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{0+6} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (6) -- node{0+3+7} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (7) -- node{0+4+3+1} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (8) -- node{0+3+7} (9);
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{enumerate}
+        \item $v_1-v_2-v_4-v_7-v_9$ \\
+        $min\{4, 4, 7, 10\} = 4$
+        \item $v_1-v_4-v_7-v_9$ \\
+        $min\{8, 7-4, 10-4\} = 3$
+        \item $v_1-v_5-v_7-v_9$ \\
+        $min\{7, 4, 10-4-3\} = 1$
+        \item $v_1-v_5-v_9$ \\
+        $min\{7-1, 6\} = 6$
+        \item $v_1-v_3-v_6-v_8-v_9$ \\
+        $min\{3, 3, 10, 15\} = 3$
+        \item $v_1-v_6-v_8-v_9$ \\
+        $min\{10, 10-3, 15-3\} = 7$
+        
+    \end{enumerate}
+
+    Получился полный поток:
+    \begin{center}
+        \begin{tikzpicture}[circ/.style={circle, draw}]
+            \path[nodes={circ}]
+                (6,  0) node(6) {6}
+                (2,  1) node(3) {3}
+                (10, 1) node(8) {8}
+                (0,  3) node(1) {1}
+                (6,  3) node(5) {5}
+                (12, 3) node(9) {9}
+                (2,  5) node(2) {2}
+                (6,  6) node(4) {4}
+                (10, 5) node(7) {7}
+            ;
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{4} (2);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{3} (3);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{3} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{7} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{7} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{4} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{0} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{0} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{3} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (4) -- node{7} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{1} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{0} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{6} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (6) -- node{10} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (7) -- node{8} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (8) -- node{10} (9);
+        \end{tikzpicture}
+    \end{center}
+
+
+    \item Построим максимальный поток
+    
+    \begin{center}
+        \begin{tikzpicture}[circ/.style={circle, draw}]
+            \path[nodes={circ}]
+                (6,  0) node(6) {6}
+                (2,  1) node(3) {3}
+                (10, 1) node(8) {8}
+                (0,  3) node(1) {1}
+                (6,  3) node(5) {5}
+                (12, 3) node(9) {9}
+                (2,  5) node(2) {2}
+                (6,  6) node(4) {4}
+                (10, 5) node(7) {7}
+            ;
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{4} (2);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{3} (3);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{3+2+1} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{7} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{7+3} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{4-2-1} (4);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{0+2+1} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{0+3} (5);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (3) -- node{3-3} (6);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (4) -- node{7} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{1+2} (7);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{0+1+3} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{6} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (6) -- node{10} (8);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (7) -- node{8+2} (9);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (8) -- node{10+1+3} (9);
+        \end{tikzpicture}
+    \end{center}
+
+    Найдем увеличивающие цепи:
+    \begin{enumerate}
+        \item $v_1-v_4-v_2-v_5-v_7-v_9$\\
+        $min\{8 - 3, \underline{4}, 3, 4 - 1, 10 - 8\} = 2$
+        \item $v_1-v_4-v_2-v_5-v_8-v_9$\\
+        $min\{8 - 3 - 2, \underline{4 - 2}, 3 - 2, 4, 15 - 10\} = 1$
+        \item $v_1-v_6-v_3-v_5-v_8-v_9$\\
+        $min\{10 - 7, \underline{3}, 5, 4 - 1, 15 - 10 - 1\} = 3$
+    \end{enumerate}
+
+    Больше увеличивающих цепей нет.
+    
+\end{enumerate}
+
+\section*{Ответ}
+
+$\Phi_{max} = 10 + 6 + 14 = 30$
+
+\end{document}

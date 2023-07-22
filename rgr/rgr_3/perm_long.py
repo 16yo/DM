@@ -1,7 +1,5 @@
 import os
-N = 4
-
-
+N = 6
 
 def make_perm(s: str):
     m = dict({})
@@ -140,7 +138,7 @@ def pow_perm(a, k: int):
     return k_2
 
 def interactive(on=False, type=1):
-    if not False:
+    if on:
         if type == 1:
             while True:
                 s = input()
@@ -227,25 +225,33 @@ def equal_groups(A, B):
                 return False
     return True
 
+def latex_interpret(G, H, side):
+    AG = equivalent_groups(G, H, side)
+    for i in AG:
+        if side == 'left':
+            print('\\item $', to_str(i[0]), ' \\cdot  H = \\{', sep='', end='')
+        else:
+            print('\\item $H \\cdot ', to_str(i[0]), ' = \\{', sep='', end='')
 
-#interactive()
-G = permutations()
-
-H = [                                                                     \
-     perm_one(),            mult_expr('(14)'),     mult_expr('(23)'),       \
-     mult_expr('(12)(34)'), mult_expr('(13)(24)'), mult_expr('(14)(23)'), \
-     mult_expr('(1243)'),   mult_expr('(1342)')                            
-    ]
+        for j in range(len(i)):
+            print(to_str(i[j]), end='')
+            if (j < len(i) - 1):
+                print(', ', end='')
+        print('\\}$')
 
 
-AG = equivalent_groups(G, H, "left")
+interactive(True)
 
-for i in AG:
-    print('\\item $', to_str(i[0]), ' \\cdot  H = \\{', sep='', end='')
-    for j in range(len(i)):
-        print(to_str(i[j]), end='')
-        if (j < len(i) - 1):
-            print(', ', end='')
-    print('\\}$')
+# G = permutations()
+
+# H = [                                                                     \
+#      perm_one(),            mult_expr('(14)'),     mult_expr('(23)'),       \
+#      mult_expr('(12)(34)'), mult_expr('(13)(24)'), mult_expr('(14)(23)'), \
+#      mult_expr('(1243)'),   mult_expr('(1342)')                            
+#     ]
+
+
+
+
 
 

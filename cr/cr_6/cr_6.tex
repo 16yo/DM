@@ -1,0 +1,265 @@
+\documentclass{article}
+
+\usepackage{amsmath, systeme}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+
+\usepackage{tikz}
+\usetikzlibrary{graphs, babel, quotes, calc, arrows.meta}
+
+\title{Курсовая работа по дискретной математике\\Шестая задача}
+\author{Ахметшин Б. Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Май, 2023}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Задача}
+\tolerance 1000
+\large
+Пусть каждому ребру неориентированного графа соответствует некоторый элемент
+электрической цепи. Составить линейно независимые системы уравнений Кирхгофа для токов и
+напряжений. Пусть первому и пятому ребру соответствуют источники тока с ЭДС $E_1$ и $E_2$
+(полярность выбирается произвольно), а остальные элементы являются сопротивлениями. Используя
+закон Ома, и, предполагая внутренние сопротивления источников тока равными нулю, получить
+систему уравнений для токов.
+
+\section*{Дано}
+
+\begin{center}
+    \begin{tikzpicture}[circ/.style={circle, draw}]
+        \path[nodes={circ}]
+            (0, 3) node(1) {1}
+            (4, 3) node(2) {2}
+            (8, 3) node(3) {3}
+            (0, 0) node(4) {4}
+            (6, 0) node(5) {5}
+        ;
+        \draw[nodes={auto}]
+            (1) -- node{$q_2$} (2)
+            (1) -- node{$q_1$} (4)
+            (1) -- node{$q_6$} (5)
+            (2) -- node{$q_7$} (3)
+            (2) -- node{$q_5$} (4)
+            (2) -- node{$q_3$} (5)
+            (3) -- node{$q_8$} (5)
+            (4) -- node{$q_4$} (5)
+        ;
+    \end{tikzpicture}
+\end{center}
+
+$U = 
+\begin{pmatrix}
+    E_1 \\
+    U_2 \\
+    U_3 \\
+    U_4 \\
+    E_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 
+\end{pmatrix}
+$
+
+\section*{Решение}
+
+\begin{enumerate}
+    \item Зададим ориентацию
+        \begin{center}
+            \begin{tikzpicture}[circ/.style={circle, draw}]
+                \path[nodes={circ}]
+                    (0, 3) node(1) {1}
+                    (4, 3) node(2) {2}
+                    (8, 3) node(3) {3}
+                    (0, 0) node(4) {4}
+                    (6, 0) node(5) {5}
+                ;
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (1) -- node{$q_2$} (2);
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (2) -- node{$q_7$} (3);
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (4) -- node{$q_5$} (2);
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (4) -- node{$q_1$} (1);
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (5) -- node{$q_4$} (4);
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (5) -- node{$q_6$} (1); 
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (5) -- node{$q_3$} (2); 
+                \draw[-{Stealth[scale=2]}, nodes={auto}]
+                    (5) -- node{$q_8$} (3); 
+            \end{tikzpicture}
+        \end{center}
+    \item Построим остовное дерево $D$
+    \begin{center}
+        \begin{tikzpicture}[circ/.style={circle, draw}]
+            \path[nodes={circ}]
+                (0, 3) node(1) {1}
+                (4, 3) node(2) {2}
+                (8, 3) node(3) {3}
+                (0, 0) node(4) {4}
+                (6, 0) node(5) {5}
+            ;
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (1) -- node{$q_2$} (2);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (2) -- node{$q_7$} (3);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (4) -- node{$q_1$} (1);
+            \draw[-{Stealth[scale=2]}, nodes={auto}]
+                (5) -- node{$q_4$} (4);
+            ;
+        \end{tikzpicture}
+    \end{center}
+    \item Добавляем по одному ребру из графа, получаем ровно один простой цикл.
+    Записываем соответствующие вектор циклы. 
+    \begin{flushleft}
+        $(D + q_5)$ $\mu_1$: $v_4-v_1-v_2-v_4 \rightarrow C(\mu_1) = (1, 1, 0, 0, -1, 0, 0, 0)$\\
+        $(D + q_6)$ $\mu_2$: $v_5-v_4-v_1-v_5 \rightarrow C(\mu_2) = (1, 0, 0, 1, 0, -1, 0, 0)$\\
+        $(D + q_3)$ $\mu_3$: $v_5-v_4-v_1-v_2-v_5 \rightarrow C(\mu_3) = (1, 1, -1, 1, 0, 0, 0, 0)$\\
+        $(D + q_8)$ $\mu_4$: $v_5-v_4-v_1-v_2-v_3-v_5 \rightarrow C(\mu_4) = (1, 1, 0, 1, 0, 0, 1, -1)$\\
+    \end{flushleft}
+    $\Rightarrow C = 
+    \begin{pmatrix}
+        1 & 1 & 0 & 0 & -1 & 0 & 0 & 0 \\
+        1 & 0 & 0 & 1 & 0 & -1 & 0 & 0 \\
+        1 & 1 & -1 & 1 & 0 & 0 & 0 & 0 \\
+        1 & 1 & 0 & 1 & 0 & 0 & 1 & -1
+    \end{pmatrix}
+    $
+    \item По закону Кирхгофа для напряжений $C \times U = 0$
+    \newline
+    $
+    \begin{pmatrix}
+        1 & 1 & 0 & 0 & -1 & 0 & 0 & 0 \\
+        1 & 0 & 0 & 1 & 0 & -1 & 0 & 0 \\
+        1 & 1 & -1 & 1 & 0 & 0 & 0 & 0 \\
+        1 & 1 & 0 & 1 & 0 & 0 & 1 & -1
+    \end{pmatrix}
+    \times
+    \begin{pmatrix}
+        E_1 \\
+        U_2 \\
+        U_3 \\
+        U_4 \\
+        E_5 \\
+        U_6 \\
+        U_7 \\
+        U_8 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        E_1 + U_2 - E_5 \\
+        E_1 + U_4 - U_6 \\
+        E_1 + U_2 - U_3 + U_4 \\
+        E_1 + U_2 + U_4 + U_7 - U_8 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        0 \\
+        0
+    \end{pmatrix}
+    $
+    \newline
+    \begin{equation*}
+    \Rightarrow
+        \begin{cases}
+            E_1 + U_2 - E_5 = 0 \\
+            E_1 + U_4 - U_6 = 0 \\
+            E_1 + U_2 - U_3 + U_4 = 0 \\
+            E_1 + U_2 + U_4 + U_7 - U_8 = 0        
+        \end{cases}
+    \Leftrightarrow
+        \begin{cases}
+            U_2 = E_5 - E_1 \\
+            U_4 = U_6 - E_1 \\
+            U_3 = E_5 + U_4 \\
+            U_7 = U_8 - U_6 + E_1 - E_5
+        \end{cases}
+    \end{equation*}
+    \item Находим матрицу инцидентности $B$\\
+    \newline
+    B = 
+    $
+    \begin{pmatrix}
+        1  & -1 & 0  & 1  & 0  & 0  & 0  & 0 \\
+        0  & 1  & 1  & 0  & 1  & 0  & -1 & 0 \\
+        0  & 0  & 0  & 0  & 0  & 0  & 1  & 1 \\
+        -1 & 0  & 0  & 1  & -1 & 0  & 0  & 0 \\
+        0  & 0  & 1  & 1  & 0  & 1  & 0  & 1
+    \end{pmatrix}
+    $
+    \item По закону Кирхгофа для токов $B \times I = 0$
+    \newline
+    $
+    \begin{pmatrix}
+        1  & -1 & 0  & 0  & 1  & 0  & 0  & 0 \\
+        0  & 1  & 1  & 0  & 1  & 0  & -1 & 0 \\
+        0  & 0  & 0  & 0  & 0  & 0  & 1  & 1 \\
+        -1 & 0  & 0  & 1  & -1 & 0  & 0  & 0 \\
+        0  & 0  & 1  & 1  & 0  & 1  & 0  & 1
+    \end{pmatrix}
+    \times
+    \begin{pmatrix}
+        I_1 \\
+        I_2 \\
+        I_3 \\
+        I_4 \\
+        I_5 \\
+        I_6 \\
+        I_7 \\
+        I_8
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        I_1 - I_2 + I_5       \\
+        I_2 + I_3 + I_5 - I_7 \\
+        I_7 + I_8             \\
+        -I_1 + I_4 - I_5      \\
+        I_3 + I_4 + I_6 + I_8
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        0
+    \end{pmatrix}
+    $
+    \newline
+    \begin{equation*}
+        \Rightarrow
+        \begin{cases}
+            I_1 - I_2 + I_5 = 0       \\
+            I_2 + I_3 + I_5 - I_7 = 0 \\
+            I_7 + I_8 = 0             \\
+            -I_1 + I_4 - I_5 = 0
+        \end{cases},
+    \end{equation*}
+    с учетом того, что $rgB = 4$.
+    \item Вместе с законом Ома получается система:
+    \begin{equation*}
+        \begin{cases}
+            I_2 R_2 = E_5 - E_1             \\
+            I_4 R_4 = I_6 R_6 - E_1             \\
+            I_3 R_3 = E_5 + I_4            \\
+            I_7 R_7 = I_8 R_8 - I_6 R_6 + E_1 - E_5 \\
+            I_1 - I_2 + I_5 = 0       \\
+            I_2 + I_3 + I_5 - I_7 = 0 \\
+            I_7 + I_8 = 0             \\
+            -I_1 + I_4 - I_5 = 0
+        \end{cases}
+    \end{equation*}
+\end{enumerate}
+
+
+
+\end{document}

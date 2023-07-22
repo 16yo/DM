@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amssymb}
+
+
+\title{РГР по дискретной математике\\Пятая задача}
+\author{Ахметшин Б. Р. -- М8О-103Б-22 -- 2 вариант}
+\date{Май, 2023}
+
+\begin{document}
+\maketitle
+
+
+\section*{Дано}
+Целые числа <Z, +, $\times$>
+
+
+\section*{Задание}
+Определить, является ли полем или кольцом заданная алгебраическая структура.
+Проверить, существуют ли делители нуля.
+
+\section*{Решение}
+\subsection*{Сложение}
+\begin{enumerate}
+    \item Коммутативность, ассоциативность, замкнутость - по аксиомам сложения
+    \item Единичный елемент: $e$ = 0
+    \item Обратный элемент: $\forall a \in Z$  $\exists \overline{a}: a + \overline{a} = \overline{a} + a = e$ 
+\end{enumerate}
+$\Rightarrow$ $<Z, +>$ - коммутативная группа
+
+\subsection*{Умножение}
+\begin{enumerate}
+    \item Коммутативность, ассоциативность, замкнутость - по аксиомам умножения
+    \item Единичный элемент $e = 1$
+    \item Обратный элемент существует только для единицы: $a \in Z$  $\exists \overline{a} \Rightarrow a = e$
+\end{enumerate}
+$\Rightarrow$ $<Z, \times>$ - коммутативный моноид
+
+\subsection*{Дистрибутивность}
+
+Дистрибутивность умножения по сложению: $\forall a, b, c \in Z: a \times (b + c) = a \times b + a \times c$.\\
+Дистрибутивности сложения по умножению нет.
+
+\subsection*{Делители нуля}
+
+Делителей нуля нет.
+
+\section*{Ответ}
+
+$<Z, +, \times>$ - коммутативное кольцо.
+
+\end{document}
